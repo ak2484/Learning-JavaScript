@@ -36,10 +36,10 @@ let newGreetMessage = `Helloooo ${username}!`;
 // console.log(newGreetMessage);
 
 let demoOne = `Value is ${2 ** 4}`; // we can perform operations too with ``
-console.log(demoOne);
+// console.log(demoOne);
 
 // symbol
 let sm1 = Symbol();
 let sm2 = Symbol();
 
-console.log(sm1 == sm2);
+// console.log(sm1 == sm2);

@@ -87,7 +87,7 @@ topCities.pop();
 // console.log(hardCopyCities);
 
 /* 
-You have two arrays: 'europeanCities' containing "Paris", and "Rome" and 'assianCities' containing "Tokyo" and "Bangkok".
+8. You have two arrays: 'europeanCities' containing "Paris", and "Rome" and 'assianCities' containing "Tokyo" and "Bangkok".
     /* Merge these two arrays */ /* into a new array named 'worldCities'
  */
 

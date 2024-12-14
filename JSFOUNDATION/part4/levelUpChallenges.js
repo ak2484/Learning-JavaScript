@@ -27,9 +27,9 @@ let cities = ["London", "New York", "Paris", "Berlin"];
 let visitedCities = [];
 
 for (let j = 0; j < cities.length; j++) {
-  //   if (cities[j] !== "Paris") {
-  //     visitedCities.push(cities[j]);
-  //   }
+  // if (cities[j] !== "Paris") {
+  //   visitedCities.push(cities[j]);
+  // }
 
   if (cities[j] === "paris" || cities[j] === "Paris") {
     continue;
@@ -39,7 +39,7 @@ for (let j = 0; j < cities.length; j++) {
 // console.log(visitedCities);
 
 /* 
-3. Use a 'for-of' loop to iterate through the array '[1, 2, 3, 4, 5]' and syop when the number '4' is found.
+3. Use a 'for-of' loop to iterate through the array '[1, 2, 3, 4, 5]' and stop when the number '4' is found.
     Store the numbers before '4' in an array named 'smallNumbers'
 */
 let numbers = [1, 2, 3, 4, 5];

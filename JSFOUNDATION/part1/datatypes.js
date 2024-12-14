@@ -11,7 +11,7 @@ Bigint
 Undefined 
 null 
 
-Object
+Object(Array , Objects, functions)
 
 Symbol
 */
