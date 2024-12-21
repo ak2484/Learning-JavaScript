@@ -2,7 +2,6 @@ console.log("This File is for studying the Datatypes");
 
 /* 
 
-
 String 
 Number 
 Boolean 

@@ -50,5 +50,11 @@ let items = ["item1"];
 if (items.length === 0) {
   console.log("Array is empty");
 } else {
-  console.log("Array is NOT empty");
+  // console.log("Array is NOT empty");
 }
+
+// Ternary Operator
+let a = 10;
+let b = 10;
+
+a == b ? console.log("both are equal") : console.log("both are not equal");
