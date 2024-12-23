@@ -143,10 +143,29 @@ class Calculator {
 // ////   Getters and Setters
 
 class Employee {
+  #salary;
   constructor(name, salary) {
+    if (salary < 0) {
+      console.error("Inavalid Salary");
+    }
     this.name = name;
-    this._salary = salary
+    this.#salary = salary;
+  }
+
+  get salary() {
+    return `You are not allowed to see the salary`;
+  }
+
+  set salary(value) {
+    if (value < 0) {
+      console.error("Invalid Salary");
+    } else {
+      this._salary = value;
+    }
   }
 }
 
-let emp = 
+let emp = new Employee("Alice", -50000);
+
+// console.log(emp.salary);
+emp.salary = -50000;
