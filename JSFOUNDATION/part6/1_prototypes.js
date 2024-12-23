@@ -1,5 +1,6 @@
 let computer = {
   cpu: 12,
+  ram: 16,
 };
 
 let lenovo = {
@@ -8,8 +9,7 @@ let lenovo = {
 };
 
 let tomHardware = {};
-
-// console.log(`lenovo`, lenovo.__proto__);
+console.log(`lenovo`, lenovo.__proto__);
 
 // '__' is called as Dunder
 
