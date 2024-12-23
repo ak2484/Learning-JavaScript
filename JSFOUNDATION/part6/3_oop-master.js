@@ -61,3 +61,92 @@ let myCar = new Car("Toyota", "Corolla");
 
 let vehOne = new Vehicle("Toyoto", "Corolla");
 // console.log(vehOne.make);
+
+//// Encapsulation restrict direct access to the data of the object
+
+class BankAccount {
+  #balance = 0;
+
+  deposit(amount) {
+    this.#balance += amount;
+    return this.#balance;
+  }
+
+  getBalance() {
+    return `$ ${this.#balance}`;
+  }
+}
+
+let account = new BankAccount();
+// console.log(account.getBalance());
+
+///// Abstrction : hiding the information
+
+class CoffeeMachine {
+  start() {
+    // call DB
+    // filter value
+    return `Starting the machine...`;
+  }
+
+  brewCoffee() {
+    // complex calculation
+    return `Brewing coffee`;
+  }
+
+  pressStartButton() {
+    let msgOne = this.start();
+    let msgTwo = this.brewCoffee();
+    return `${msgOne} + ${msgTwo}`;
+  }
+}
+
+let myMachine = new CoffeeMachine();
+
+// console.log(myMachine.start());
+// console.log(myMachine.brewCoffee());
+
+// console.log(myMachine.pressStartButton());
+
+// /// Polymorphism : the ability of something to have or to be displayed in more than one form
+
+class Bird {
+  fly() {
+    return `Flying...`;
+  }
+}
+
+class Penguin extends Bird {
+  fly() {
+    return `Penguin can't fly`;
+  }
+}
+
+let bird = new Bird();
+let penguin = new Penguin();
+// console.log(bird.fly());
+// console.log(penguin.fly());
+
+//////// static method : it can't be access directly by making object like other methods in the class
+
+class Calculator {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+// let minCalc = new Calculator();
+// console.log(minCalc.add(2, 3));
+
+// console.log(Calculator.add(2, 3));
+
+// ////   Getters and Setters
+
+class Employee {
+  constructor(name, salary) {
+    this.name = name;
+    this._salary = salary
+  }
+}
+
+let emp = 
