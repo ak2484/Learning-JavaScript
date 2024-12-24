@@ -146,7 +146,7 @@ class Employee {
   #salary;
   constructor(name, salary) {
     if (salary < 0) {
-      console.error("Inavalid Salary");
+      console.error("Invalid Salary");
     }
     this.name = name;
     this.#salary = salary;
