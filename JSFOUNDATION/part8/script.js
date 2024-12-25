@@ -12,7 +12,7 @@ document
   .addEventListener("click", function () {
     let firstCity = document.getElementById("citiesList").firstElementChild;
 
-    firstCity.classList.add("highlight");
+    firstCity.classList.add("highlight"); // by "add" we can add a class to the elements of the web page
   });
 
 // example-3
@@ -47,7 +47,7 @@ document.getElementById("clickMeButton").addEventListener("click", function () {
 
 // example-7
 document.getElementById("teaList").addEventListener("click", function (event) {
-  // event.target will give us the information about the element we clicked
+  // "event.target" will give us the information about the element we clicked
   if (event.target && event.target.matches(".teaItem")) {
     alert(`You selected ${event.target.textContent}`);
   }
@@ -67,6 +67,7 @@ document
 
 //  example-9
 document.addEventListener("DOMContentLoaded", function () {
+  alert("DOM is Loaded");
   document.getElementById("domStatus").textContent = "DOM fully Loaded";
 });
 
