@@ -1,5 +1,9 @@
+// Promises has three phases
+// 1. Pending
+// 2. Fulfilled
+// 3. Rejected
 function fetchData() {
-  // Promise Creation
+  // Promise Creation : they are created using a "new" keyword and takes one callback as parameter/argument
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       let success = false;
@@ -11,6 +15,7 @@ function fetchData() {
     }, 3000);
   });
 }
+
 // Consuming the Promise
 
 fetchData()
