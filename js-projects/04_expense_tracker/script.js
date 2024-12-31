@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const expenseForm = document.getElementById("expense-form");
   const expenseNameInput = document.getElementById("expense-name");
   const expenseAmountInput = document.getElementById("expense-amount");
+  const addExpenseBtn = document.getElementById("add-expense-btn");
   const expenseList = document.getElementById("expense-list");
   const totalAmountDisplay = document.getElementById("total-amount");
 
@@ -9,24 +10,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalAmount = calculateTotal();
 
   renderExpenses();
+  updateTotal();
 
   expenseForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const name = expenseNameInput.value.trim();
     const amount = parseFloat(expenseAmountInput.value.trim());
-
     if (name !== "" && !isNaN(amount) && amount > 0) {
       const newExpense = {
         id: Date.now(),
         name: name,
         amount: amount,
       };
+
       expenses.push(newExpense);
-      saveExpensesTolocal();
+      saveExpensesToLocal();
       renderExpenses();
       updateTotal();
 
-      //clear input
+      // clear input
       expenseNameInput.value = "";
       expenseAmountInput.value = "";
     }
@@ -34,12 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderExpenses() {
     expenseList.innerHTML = "";
-    expenses.forEach((expense) => {
+    expenses.forEach((expenseItem) => {
       const li = document.createElement("li");
       li.innerHTML = `
-        ${expense.name} - $${expense.amount}
-        <button data-id="${expense.id}">Delete</button>
-        `;
+      <span>${expenseItem.name} - $${expenseItem.amount}</span> <button data-id= "${expenseItem.id}" >Delete</button>
+      `;
       expenseList.appendChild(li);
     });
   }
@@ -48,13 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return expenses.reduce((sum, expense) => sum + expense.amount, 0);
   }
 
-  function saveExpensesTolocal() {
+  function saveExpensesToLocal() {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }
 
   function updateTotal() {
     totalAmount = calculateTotal();
-    totalAmountDisplay.textContent = totalAmount.toFixed(2);
+    totalAmountDisplay.textContent = `${totalAmount.toFixed(2)} `;
   }
 
   expenseList.addEventListener("click", (e) => {
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const expenseId = parseInt(e.target.getAttribute("data-id"));
       expenses = expenses.filter((expense) => expense.id !== expenseId);
 
-      saveExpensesTolocal();
+      saveExpensesToLocal();
       renderExpenses();
       updateTotal();
     }
