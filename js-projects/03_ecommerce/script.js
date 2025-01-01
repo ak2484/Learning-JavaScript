@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, name: "Product 3", price: 59.99 },
   ];
 
-  const cart = [];
+  let cart = [];
 
   const productList = document.getElementById("product-list");
   const cartItems = document.getElementById("cart-items");
@@ -48,24 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
         totalPrice += item.price;
         const cartItemDisplay = document.createElement("div");
         cartItemDisplay.innerHTML = `
-        ${item.name} - $${item.price} <button data-id=${item.id}>remove</button>
+        ${item.name} - $${item.price} <button data-id="${item.id}">remove</button>
         `;
-
-        cartItems.addEventListener("click", (e) => {
-          if (e.target.tagName === "BUTTON") {
-            cartItems.remove(cart.filter((t) => t.id === item.id));
-          }
-        });
 
         cartItems.appendChild(cartItemDisplay);
       });
-
       totalPriceDisplay.innerText = `${totalPrice.toFixed(2)}`;
     } else {
       emptyCartMessage.classList.remove("hidden");
       totalPriceDisplay.innerText = "$0.00";
     }
   }
+
+  cartItems.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const itemId = parseInt(e.target.getAttribute("data-id"));
+      cart = cart.filter((item) => item.id !== itemId);
+      renderCart();
+    }
+  });
 
   checkoutBtn.addEventListener("click", () => {
     cart.length = 0;
